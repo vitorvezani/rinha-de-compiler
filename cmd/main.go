@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 
@@ -9,9 +8,7 @@ import (
 )
 
 func main() {
-	path := os.Args[1:][0]
-
-	b, err := os.ReadFile(path)
+	b, err := os.ReadFile("/var/rinha/source.rinha.json")
 	if err != nil {
 		log.Fatalf("error reading file: %v", err)
 	}
@@ -26,10 +23,8 @@ func main() {
 		log.Fatalf("error in codegen: %v", err)
 	}
 
-	fmt.Println(code)
-
 	err = pkg.Eval(code)
 	if err != nil {
-		log.Fatalf("error evaluating program: %v", err)
+		log.Fatalf("error evaluating program on otto JS runtime : %v", err)
 	}
 }
