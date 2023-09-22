@@ -1,0 +1,12 @@
+let a = 1;
+let b = 0;
+
+let combination = fn () => {
+    if (false) {
+        a
+    } else {
+        print(2+2)        
+    }
+};
+
+print(combination())

@@ -16,7 +16,7 @@ type AST struct {
 }
 
 func (p *AST) Visit() (string, error) {
-	return p.Expression.Visit()
+	return p.Expression.v.Visit()
 }
 
 type Location struct {
@@ -50,7 +50,7 @@ func (i *Function) Visit() (string, error) {
 	for _, p := range i.Parameters {
 		params = append(params, p.Text)
 	}
-	v, err := i.Value.Visit()
+	v, err := i.Value.v.Visit()
 	if err != nil {
 		return "", err
 	}
@@ -64,13 +64,6 @@ type Visitable interface {
 type Term struct {
 	Kind string
 	v    Visitable
-}
-
-func (t *Term) Visit() (string, error) {
-	if t.v != nil {
-		return t.v.Visit()
-	}
-	return "", nil
 }
 
 func (t *Term) UnmarshalJSON(b []byte) error {
@@ -180,14 +173,14 @@ type Call struct {
 }
 
 func (i *Call) Visit() (string, error) {
-	c, err := i.Callee.Visit()
+	c, err := i.Callee.v.Visit()
 	if err != nil {
 		return "", err
 	}
 
 	var args []string
 	for _, a := range i.Arguments {
-		arg, err := a.Visit()
+		arg, err := a.v.Visit()
 		if err != nil {
 			return "", err
 		}
@@ -218,11 +211,11 @@ func trackFuntionParamsCount(l Let) {
 
 func (i *Let) Visit() (string, error) {
 	i.Name.Text = fmt.Sprintf("var %s", i.Name.Text)
-	v, err := i.Value.Visit()
+	v, err := i.Value.v.Visit()
 	if err != nil {
 		return "", err
 	}
-	n, err := i.Next.Visit()
+	n, err := i.Next.v.Visit()
 	if err != nil {
 		return "", err
 	}
@@ -264,16 +257,16 @@ type If struct {
 }
 
 func (i *If) Visit() (string, error) {
-	c, err := i.Condition.Visit()
+	c, err := i.Condition.v.Visit()
 	if err != nil {
 		return "", err
 	}
-	t, err := i.Then.Visit()
+	t, err := i.Then.v.Visit()
 	if err != nil {
 		return "", err
 	}
 
-	o, err := i.Otherwise.Visit()
+	o, err := i.Otherwise.v.Visit()
 	if err != nil {
 		return "", err
 	}
@@ -289,12 +282,12 @@ type Binary struct {
 }
 
 func (i *Binary) Visit() (string, error) {
-	lhs, err := i.LHS.Visit()
+	lhs, err := i.LHS.v.Visit()
 	if err != nil {
 		return "", err
 	}
 
-	rhs, err := i.RHS.Visit()
+	rhs, err := i.RHS.v.Visit()
 	if err != nil {
 		return "", err
 	}
@@ -314,12 +307,12 @@ type Tuple struct {
 }
 
 func (i *Tuple) Visit() (string, error) {
-	f, err := i.First.Visit()
+	f, err := i.First.v.Visit()
 	if err != nil {
 		return "", err
 	}
 
-	s, err := i.Second.Visit()
+	s, err := i.Second.v.Visit()
 	if err != nil {
 		return "", err
 	}
@@ -338,7 +331,7 @@ func (i *First) Visit() (string, error) {
 		return "", errors.New("first expects a tuple")
 	}
 
-	f, err := t.First.Visit()
+	f, err := t.First.v.Visit()
 	if err != nil {
 		return "", err
 	}
@@ -357,7 +350,7 @@ func (i *Second) Visit() (string, error) {
 		return "", errors.New("second expects a tuple")
 	}
 
-	f, err := t.Second.Visit()
+	f, err := t.Second.v.Visit()
 	if err != nil {
 		return "", err
 	}
@@ -371,7 +364,7 @@ type Print struct {
 }
 
 func (i *Print) Visit() (string, error) {
-	v, err := i.Value.Visit()
+	v, err := i.Value.v.Visit()
 	if err != nil {
 		return "", err
 	}
