@@ -1,0 +1,42 @@
+{
+    "name": ".\\files\\prints.rinha",
+    "expression": {
+        "kind": "Print",
+        "value": {
+            "kind": "Tuple",
+            "first": {
+                "kind": "Int",
+                "value": 1,
+                "location": {
+                    "start": 7,
+                    "end": 8,
+                    "filename": ".\\files\\prints.rinha"
+                }
+            },
+            "second": {
+                "kind": "Int",
+                "value": 2,
+                "location": {
+                    "start": 10,
+                    "end": 11,
+                    "filename": ".\\files\\prints.rinha"
+                }
+            },
+            "location": {
+                "start": 6,
+                "end": 12,
+                "filename": ".\\files\\prints.rinha"
+            }
+        },
+        "location": {
+            "start": 0,
+            "end": 13,
+            "filename": ".\\files\\prints.rinha"
+        }
+    },
+    "location": {
+        "start": 0,
+        "end": 13,
+        "filename": ".\\files\\prints.rinha"
+    }
+}
