@@ -10,7 +10,7 @@
             "request": "launch",
             "mode": "debug",
             "program": "${file}",
-            "args": ["../files/first.rinha.json"]
+            "args": ["../files/combination_wrong_args.rinha.json"]
         }
     ]
 }

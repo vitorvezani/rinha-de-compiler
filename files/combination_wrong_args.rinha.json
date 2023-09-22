@@ -1,0 +1,389 @@
+{
+    "name": ".\\files\\combination_wrong_args.rinha",
+    "expression": {
+        "kind": "Let",
+        "name": {
+            "text": "combination",
+            "location": {
+                "start": 4,
+                "end": 15,
+                "filename": ".\\files\\combination_wrong_args.rinha"
+            }
+        },
+        "value": {
+            "kind": "Function",
+            "parameters": [
+                {
+                    "text": "n",
+                    "location": {
+                        "start": 22,
+                        "end": 23,
+                        "filename": ".\\files\\combination_wrong_args.rinha"
+                    }
+                },
+                {
+                    "text": "k",
+                    "location": {
+                        "start": 25,
+                        "end": 26,
+                        "filename": ".\\files\\combination_wrong_args.rinha"
+                    }
+                }
+            ],
+            "value": {
+                "kind": "Let",
+                "name": {
+                    "text": "a",
+                    "location": {
+                        "start": 42,
+                        "end": 43,
+                        "filename": ".\\files\\combination_wrong_args.rinha"
+                    }
+                },
+                "value": {
+                    "kind": "Binary",
+                    "lhs": {
+                        "kind": "Var",
+                        "text": "k",
+                        "location": {
+                            "start": 46,
+                            "end": 47,
+                            "filename": ".\\files\\combination_wrong_args.rinha"
+                        }
+                    },
+                    "op": "Eq",
+                    "rhs": {
+                        "kind": "Int",
+                        "value": 0,
+                        "location": {
+                            "start": 51,
+                            "end": 52,
+                            "filename": ".\\files\\combination_wrong_args.rinha"
+                        }
+                    },
+                    "location": {
+                        "start": 46,
+                        "end": 52,
+                        "filename": ".\\files\\combination_wrong_args.rinha"
+                    }
+                },
+                "next": {
+                    "kind": "Let",
+                    "name": {
+                        "text": "b",
+                        "location": {
+                            "start": 63,
+                            "end": 64,
+                            "filename": ".\\files\\combination_wrong_args.rinha"
+                        }
+                    },
+                    "value": {
+                        "kind": "Binary",
+                        "lhs": {
+                            "kind": "Var",
+                            "text": "k",
+                            "location": {
+                                "start": 67,
+                                "end": 68,
+                                "filename": ".\\files\\combination_wrong_args.rinha"
+                            }
+                        },
+                        "op": "Eq",
+                        "rhs": {
+                            "kind": "Var",
+                            "text": "n",
+                            "location": {
+                                "start": 72,
+                                "end": 73,
+                                "filename": ".\\files\\combination_wrong_args.rinha"
+                            }
+                        },
+                        "location": {
+                            "start": 67,
+                            "end": 73,
+                            "filename": ".\\files\\combination_wrong_args.rinha"
+                        }
+                    },
+                    "next": {
+                        "kind": "If",
+                        "condition": {
+                            "kind": "Binary",
+                            "lhs": {
+                                "kind": "Var",
+                                "text": "a",
+                                "location": {
+                                    "start": 84,
+                                    "end": 85,
+                                    "filename": ".\\files\\combination_wrong_args.rinha"
+                                }
+                            },
+                            "op": "Or",
+                            "rhs": {
+                                "kind": "Var",
+                                "text": "b",
+                                "location": {
+                                    "start": 89,
+                                    "end": 90,
+                                    "filename": ".\\files\\combination_wrong_args.rinha"
+                                }
+                            },
+                            "location": {
+                                "start": 84,
+                                "end": 90,
+                                "filename": ".\\files\\combination_wrong_args.rinha"
+                            }
+                        },
+                        "then": {
+                            "kind": "Int",
+                            "value": 1,
+                            "location": {
+                                "start": 108,
+                                "end": 109,
+                                "filename": ".\\files\\combination_wrong_args.rinha"
+                            }
+                        },
+                        "otherwise": {
+                            "kind": "Binary",
+                            "lhs": {
+                                "kind": "Call",
+                                "callee": {
+                                    "kind": "Var",
+                                    "text": "combination",
+                                    "location": {
+                                        "start": 138,
+                                        "end": 149,
+                                        "filename": ".\\files\\combination_wrong_args.rinha"
+                                    }
+                                },
+                                "arguments": [
+                                    {
+                                        "kind": "Binary",
+                                        "lhs": {
+                                            "kind": "Var",
+                                            "text": "n",
+                                            "location": {
+                                                "start": 150,
+                                                "end": 151,
+                                                "filename": ".\\files\\combination_wrong_args.rinha"
+                                            }
+                                        },
+                                        "op": "Sub",
+                                        "rhs": {
+                                            "kind": "Int",
+                                            "value": 1,
+                                            "location": {
+                                                "start": 154,
+                                                "end": 155,
+                                                "filename": ".\\files\\combination_wrong_args.rinha"
+                                            }
+                                        },
+                                        "location": {
+                                            "start": 150,
+                                            "end": 155,
+                                            "filename": ".\\files\\combination_wrong_args.rinha"
+                                        }
+                                    },
+                                    {
+                                        "kind": "Binary",
+                                        "lhs": {
+                                            "kind": "Var",
+                                            "text": "k",
+                                            "location": {
+                                                "start": 157,
+                                                "end": 158,
+                                                "filename": ".\\files\\combination_wrong_args.rinha"
+                                            }
+                                        },
+                                        "op": "Sub",
+                                        "rhs": {
+                                            "kind": "Int",
+                                            "value": 1,
+                                            "location": {
+                                                "start": 161,
+                                                "end": 162,
+                                                "filename": ".\\files\\combination_wrong_args.rinha"
+                                            }
+                                        },
+                                        "location": {
+                                            "start": 157,
+                                            "end": 162,
+                                            "filename": ".\\files\\combination_wrong_args.rinha"
+                                        }
+                                    },
+                                    {
+                                        "kind": "Binary",
+                                        "lhs": {
+                                            "kind": "Var",
+                                            "text": "k",
+                                            "location": {
+                                                "start": 164,
+                                                "end": 165,
+                                                "filename": ".\\files\\combination_wrong_args.rinha"
+                                            }
+                                        },
+                                        "op": "Sub",
+                                        "rhs": {
+                                            "kind": "Int",
+                                            "value": 2,
+                                            "location": {
+                                                "start": 168,
+                                                "end": 169,
+                                                "filename": ".\\files\\combination_wrong_args.rinha"
+                                            }
+                                        },
+                                        "location": {
+                                            "start": 164,
+                                            "end": 169,
+                                            "filename": ".\\files\\combination_wrong_args.rinha"
+                                        }
+                                    }
+                                ],
+                                "location": {
+                                    "start": 138,
+                                    "end": 170,
+                                    "filename": ".\\files\\combination_wrong_args.rinha"
+                                }
+                            },
+                            "op": "Add",
+                            "rhs": {
+                                "kind": "Call",
+                                "callee": {
+                                    "kind": "Var",
+                                    "text": "combination",
+                                    "location": {
+                                        "start": 173,
+                                        "end": 184,
+                                        "filename": ".\\files\\combination_wrong_args.rinha"
+                                    }
+                                },
+                                "arguments": [
+                                    {
+                                        "kind": "Binary",
+                                        "lhs": {
+                                            "kind": "Var",
+                                            "text": "n",
+                                            "location": {
+                                                "start": 185,
+                                                "end": 186,
+                                                "filename": ".\\files\\combination_wrong_args.rinha"
+                                            }
+                                        },
+                                        "op": "Sub",
+                                        "rhs": {
+                                            "kind": "Int",
+                                            "value": 1,
+                                            "location": {
+                                                "start": 189,
+                                                "end": 190,
+                                                "filename": ".\\files\\combination_wrong_args.rinha"
+                                            }
+                                        },
+                                        "location": {
+                                            "start": 185,
+                                            "end": 190,
+                                            "filename": ".\\files\\combination_wrong_args.rinha"
+                                        }
+                                    },
+                                    {
+                                        "kind": "Var",
+                                        "text": "k",
+                                        "location": {
+                                            "start": 192,
+                                            "end": 193,
+                                            "filename": ".\\files\\combination_wrong_args.rinha"
+                                        }
+                                    }
+                                ],
+                                "location": {
+                                    "start": 173,
+                                    "end": 194,
+                                    "filename": ".\\files\\combination_wrong_args.rinha"
+                                }
+                            },
+                            "location": {
+                                "start": 138,
+                                "end": 194,
+                                "filename": ".\\files\\combination_wrong_args.rinha"
+                            }
+                        },
+                        "location": {
+                            "start": 80,
+                            "end": 201,
+                            "filename": ".\\files\\combination_wrong_args.rinha"
+                        }
+                    },
+                    "location": {
+                        "start": 59,
+                        "end": 201,
+                        "filename": ".\\files\\combination_wrong_args.rinha"
+                    }
+                },
+                "location": {
+                    "start": 38,
+                    "end": 201,
+                    "filename": ".\\files\\combination_wrong_args.rinha"
+                }
+            },
+            "location": {
+                "start": 18,
+                "end": 204,
+                "filename": ".\\files\\combination_wrong_args.rinha"
+            }
+        },
+        "next": {
+            "kind": "Print",
+            "value": {
+                "kind": "Call",
+                "callee": {
+                    "kind": "Var",
+                    "text": "combination",
+                    "location": {
+                        "start": 215,
+                        "end": 226,
+                        "filename": ".\\files\\combination_wrong_args.rinha"
+                    }
+                },
+                "arguments": [
+                    {
+                        "kind": "Int",
+                        "value": 10,
+                        "location": {
+                            "start": 227,
+                            "end": 229,
+                            "filename": ".\\files\\combination_wrong_args.rinha"
+                        }
+                    },
+                    {
+                        "kind": "Int",
+                        "value": 2,
+                        "location": {
+                            "start": 231,
+                            "end": 232,
+                            "filename": ".\\files\\combination_wrong_args.rinha"
+                        }
+                    }
+                ],
+                "location": {
+                    "start": 215,
+                    "end": 233,
+                    "filename": ".\\files\\combination_wrong_args.rinha"
+                }
+            },
+            "location": {
+                "start": 209,
+                "end": 234,
+                "filename": ".\\files\\combination_wrong_args.rinha"
+            }
+        },
+        "location": {
+            "start": 0,
+            "end": 234,
+            "filename": ".\\files\\combination_wrong_args.rinha"
+        }
+    },
+    "location": {
+        "start": 0,
+        "end": 234,
+        "filename": ".\\files\\combination_wrong_args.rinha"
+    }
+}

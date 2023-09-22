@@ -7,6 +7,8 @@ import (
 	"strings"
 )
 
+var functionParamsCount = map[string]int{}
+
 type AST struct {
 	Name       string
 	Expression Term
@@ -121,6 +123,7 @@ func (t *Term) UnmarshalJSON(b []byte) error {
 			return err
 		}
 		t.v = &l
+		trackFuntionParamsCount(l)
 	case "If":
 		var i If
 		if err := json.Unmarshal(b, &i); err != nil {
@@ -191,7 +194,11 @@ func (i *Call) Visit() (string, error) {
 		args = append(args, arg)
 	}
 
-	// TODO: Validate arguments length
+	if expected, found := functionParamsCount[c]; found {
+		if expected != len(args) {
+			return "", fmt.Errorf("function %s expects %d arguments, got %d", c, expected, len(args))
+		}
+	}
 
 	return fmt.Sprintf("%s(%s)", c, strings.Join(args, ", ")), nil
 }
@@ -201,6 +208,12 @@ type Let struct {
 	Value    Term
 	Next     Term
 	Location Location
+}
+
+func trackFuntionParamsCount(l Let) {
+	if fn, ok := l.Value.v.(*Function); ok {
+		functionParamsCount[l.Name.Text] = len(fn.Parameters)
+	}
 }
 
 func (i *Let) Visit() (string, error) {
@@ -240,7 +253,7 @@ type Bool struct {
 }
 
 func (i *Bool) Visit() (string, error) {
-	return "", errors.New("Bool: not implemented")
+	return fmt.Sprintf("%v", i.Value), nil
 }
 
 type If struct {
