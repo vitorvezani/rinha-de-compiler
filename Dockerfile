@@ -1,22 +1,15 @@
 # syntax=docker/dockerfile:1
 
-# Use an official Golang runtime as a parent image
-FROM golang:1.21
-
-# Set the working directory inside the container
+# Step 1
+FROM golang:1.21 AS build
 WORKDIR /app
-
-# Copy the go.mod and go.sum files to the container
 COPY go.mod go.sum ./
-
-# Download dependencies
 RUN go mod download
-
-# Copy the entire project directory into the container
 COPY . .
-
-# Build the Go application
 RUN go build ./cmd/main.go
 
-# Set the entry point for the container
+# Step 2
+FROM node:lts-slim
+WORKDIR /app
+COPY --from=build /app/main .
 ENTRYPOINT ["./main"]
